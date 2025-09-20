@@ -6,9 +6,10 @@ SFML_INCLUDE_PATH=/home/bprevost/SFML-3.0.0/include
 HEADERS=./include
 SRC_DIR=src
 OBJ_DIR=obj
-TARGET=libtoolkit.a
+TARGET=libtoolkit.so
 
-CFLAGS=-c -std=c++17 -Wall -pedantic-errors -I$(SFML_INCLUDE_PATH) -I$(HEADERS)
+CFLAGS=-fPIC -c -std=c++17 -Wall -pedantic-errors -I$(SFML_INCLUDE_PATH) -I$(HEADERS)
+LDFLAGS=-shared
 
 # Find Sources and Objects
 SOURCES=$(shell find $(SRC_DIR) -type f -name '*.cpp')
@@ -17,9 +18,13 @@ OBJECTS=$(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 # Default Target
 all: $(TARGET)
 
-# Create static library
+# # Create static library (only useful for static library)
+# $(TARGET): $(OBJECTS)
+# 	ar rcs $@ $^
+
+# Create shared library
 $(TARGET): $(OBJECTS)
-	ar rcs $@ $^
+	$(CC) $(LDFLAGS) -o $@ $^
 
 # Compile source files into object files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
@@ -34,5 +39,6 @@ install: $(TARGET)
 	mkdir -p /usr/local/include/toolkit
 	cp -r include/* /usr/local/include/toolkit
 	cp $(TARGET) /usr/local/lib
+	ldconfig
 
-.PHONY: all clean install
+.PHONY: clean all install

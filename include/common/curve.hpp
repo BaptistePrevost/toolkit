@@ -26,19 +26,20 @@ namespace TOOLKIT {
 
             minY_ = std::min(minY_, yValues.back()), maxY_ = std::max(maxY_, yValues.back());
             vertices_.resize(2*xValues.size());
+            sf::Vector2f normal = {.0, 1.0};
             for (std::size_t i=0; i<xValues.size()-1; i++) {
                 vertices_[2*i].position = sf::Vector2f(xValues[i], yValues[i]);
                 vertices_[2*i].color = color_;
-                sf::Vector2f normal(yValues[i]-yValues[i+1], xValues[i+1]-xValues[i]);
-                vertices_[2*i+1].position = normal.length() > 0 ? vertices_[2*i].position + WIDTH*normal/normal.length()
-                        : vertices_[2*i].position;
+                sf::Vector2f diff(yValues[i]-yValues[i+1], xValues[i+1]-xValues[i]);
+                if (diff.length() > 0) normal = diff / diff.length();
+                vertices_[2*i+1].position = vertices_[2*i].position + WIDTH*normal;
                 vertices_[2*i+1].color = color_;
                 
                 minY_ = std::min(minY_, yValues[i]); maxY_ = std::max(maxY_, yValues[i]);
             }
             vertices_[2*xValues.size()-2].position = sf::Vector2f(xValues.back(), yValues.back());
             vertices_[2*xValues.size()-2].color = color_;
-            vertices_[2*xValues.size()-1].position = sf::Vector2f(xValues.back(), yValues.back()+WIDTH);
+            vertices_[2*xValues.size()-1].position = vertices_[2*xValues.size()-2].position + WIDTH*normal;
             vertices_[2*xValues.size()-1].color = color_;
 
             const auto f = [&](double y){
