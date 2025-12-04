@@ -1,6 +1,6 @@
 #pragma once
 
-#include "toolkit/common/drawable.hpp"
+#include "common/drawable.hpp"
 
 namespace TOOLKIT {
 
@@ -13,7 +13,7 @@ namespace TOOLKIT {
 
         void draw(sf::RenderWindow &window);
 
-        void finalize() override final;
+        void initialize() override final;
 
         void drag(const sf::Vector2f& vector) override final;
         

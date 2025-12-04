@@ -1,6 +1,6 @@
 #pragma once
 
-#include "toolkit/panels/panel.hpp"
+#include "panels/panel.hpp"
 
 namespace TOOLKIT {
 
@@ -14,7 +14,7 @@ namespace TOOLKIT {
             sf::Color outlineColor = sf::Color(128, 128, 128)
         );
 
-        void finalize() override final;
+        void initialize() override final;
 
         void selectDrawable(const sf::Vector2f& coordinates);
         

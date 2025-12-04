@@ -1,8 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "toolkit/events/event_handler.hpp"
-#include "toolkit/panels/panel.hpp"
+#include "events/event_handler.hpp"
+#include "panels/panel.hpp"
 #include <memory>
 
 
@@ -35,8 +35,8 @@ namespace TOOLKIT {
         
         virtual void tick() = 0;
         virtual void draw() = 0;
+        virtual void define() = 0;
         virtual void initialize() = 0;
-        virtual void finalize() = 0;
 
         void updateMousePosition();
     };

@@ -1,17 +1,17 @@
-#include "toolkit/panels/vertical_display_panel.hpp"
+#include "panels/vertical_display_panel.hpp"
 
 using namespace TOOLKIT;
 
 VerticalDisplayPanel::VerticalDisplayPanel(sf::Color fillColor, sf::Color outlineColor)
         : Panel(fillColor, outlineColor) {}
 
-void VerticalDisplayPanel::finalize() {
+void VerticalDisplayPanel::initialize() {
     sf::Vector2f cumulatedPosition = position_;
     for (const WeightedItem& item : items_) {
         sf::Vector2f dimensions = {size_.x, item.weight * size_.y / totalWeight_};
         item.drawable->setPosition(cumulatedPosition);
         item.drawable->setSize(dimensions);
-        item.drawable->finalize();
+        item.drawable->initialize();
         cumulatedPosition += {0, dimensions.y};
     }
 }

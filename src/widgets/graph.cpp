@@ -1,4 +1,4 @@
-#include "toolkit/widgets/graph.hpp"
+#include "widgets/graph.hpp"
 
 using namespace TOOLKIT;
 
@@ -29,7 +29,7 @@ void Graph::draw(sf::RenderWindow &window) {
     }
 }
 
-void Graph::finalize() {}
+void Graph::initialize() {}
 
 void Graph::drag(const sf::Vector2f&) {}
 

@@ -1,4 +1,4 @@
-#include "toolkit/widgets/metric.hpp"
+#include "widgets/metric.hpp"
 
 using namespace TOOLKIT;
 
@@ -20,6 +20,6 @@ void Metric::draw(
     window.draw(text);
 }
 
-void Metric::finalize() {}
+void Metric::initialize() {}
 
 void Metric::drag(const sf::Vector2f&) {}

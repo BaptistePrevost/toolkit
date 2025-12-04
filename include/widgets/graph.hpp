@@ -4,8 +4,8 @@
 #include <deque>
 #include <functional>
 
-#include "toolkit/common/drawable.hpp"
-#include "toolkit/common/curve.hpp"
+#include "common/drawable.hpp"
+#include "common/curve.hpp"
 
 namespace TOOLKIT {
 
@@ -19,7 +19,7 @@ namespace TOOLKIT {
 
         void draw(sf::RenderWindow &window) override final;
 
-        void finalize() override final;
+        void initialize() override final;
 
         void drag(const sf::Vector2f&) override final;
 
