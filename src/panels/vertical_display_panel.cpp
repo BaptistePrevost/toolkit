@@ -1,4 +1,5 @@
-#include "panels/vertical_display_panel.hpp"
+#include <toolkit/panels/vertical_display_panel.hpp>
+#include <cassert>
 
 using namespace TOOLKIT;
 

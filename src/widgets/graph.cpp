@@ -1,4 +1,4 @@
-#include "widgets/graph.hpp"
+#include <toolkit/widgets/graph.hpp>
 
 using namespace TOOLKIT;
 

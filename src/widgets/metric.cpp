@@ -1,4 +1,4 @@
-#include "widgets/metric.hpp"
+#include <toolkit/widgets/metric.hpp>
 
 using namespace TOOLKIT;
 

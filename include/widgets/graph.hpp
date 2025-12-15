@@ -4,8 +4,8 @@
 #include <deque>
 #include <functional>
 
-#include "common/drawable.hpp"
-#include "common/curve.hpp"
+#include <toolkit/common/drawable.hpp>
+#include <toolkit/common/curve.hpp>
 
 namespace TOOLKIT {
 

@@ -1,4 +1,4 @@
-#include "panels/stacked_display_panel.hpp"
+#include <toolkit/panels/stacked_display_panel.hpp>
 
 using namespace TOOLKIT;
 

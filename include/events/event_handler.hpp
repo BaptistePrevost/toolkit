@@ -1,8 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "events/event_callback.hpp"
-#include "events/event_category_handler.hpp"
+#include <toolkit/events/event_callback.hpp>
+#include <toolkit/events/event_category_handler.hpp>
 
 namespace TOOLKIT {
     

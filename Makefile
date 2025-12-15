@@ -1,6 +1,6 @@
 CC=g++
 EXECUTABLE=app
-SFML_INCLUDE_PATH=/home/bprevost/SFML-3.0.0/include
+SFML_INCLUDE_PATH=/usr/local/include/SFML
 
 # Directories
 HEADERS=./include
