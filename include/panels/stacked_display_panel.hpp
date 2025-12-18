@@ -1,6 +1,6 @@
 #pragma once
 
-#include <toolkit/panels/panel.hpp>
+#include "panels/panel.hpp"
 
 namespace TOOLKIT {
 

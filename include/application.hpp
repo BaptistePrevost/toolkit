@@ -1,8 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include <toolkit/events/event_handler.hpp>
-#include <toolkit/panels/panel.hpp>
+#include "events/event_handler.hpp"
+#include "panels/panel.hpp"
 #include <memory>
 
 

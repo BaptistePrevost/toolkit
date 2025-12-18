@@ -2,9 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 
-#include <toolkit/configuration.hpp>
-#include <toolkit/common/drawable.hpp>
-#include <toolkit/common/rounded_rectangle.hpp>
+#include "configuration.hpp"
+#include "common/drawable.hpp"
+#include "common/rounded_rectangle.hpp"
 
 namespace TOOLKIT {
 

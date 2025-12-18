@@ -1,4 +1,4 @@
-#include <toolkit/panels/panel.hpp>
+#include "panels/panel.hpp"
 #include <cassert>
 
 using namespace TOOLKIT;
