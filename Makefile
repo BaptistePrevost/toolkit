@@ -1,44 +1,42 @@
-CC=g++
-EXECUTABLE=app
-SFML_INCLUDE_PATH=/usr/local/include/SFML
+CXX = g++
+CXXFLAGS_COMMON = -fPIC -Wall -Wextra -Iinclude -I/usr/local/include/SFML
 
-# Directories
-HEADERS=./include
-SRC_DIR=src
-OBJ_DIR=obj
-TARGET=libtoolkit.so
+SRC = $(wildcard src/**/*.cpp src/*.cpp)
+OBJ_DEBUG = $(SRC:src/%.cpp=build/debug/%.o)
+OBJ_RELEASE = $(SRC:src/%.cpp=build/release/%.o)
 
-CFLAGS=-fPIC -c -std=c++17 -Wall -pedantic-errors -I$(SFML_INCLUDE_PATH) -I$(HEADERS)
-LDFLAGS=-shared
+LIB_DEBUG = lib/debug/libtoolkit_d.so
+LIB_RELEASE = lib/release/libtoolkit.so
 
-# Find Sources and Objects
-SOURCES=$(shell find $(SRC_DIR) -type f -name '*.cpp')
-OBJECTS=$(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
+### DEBUG ###
+CXXFLAGS_DEBUG = $(CXXFLAGS_COMMON) -g -O0
+LDFLAGS_DEBUG = -shared -lsfml-graphics -lsfml-window -lsfml-system
 
-# Default Target
-all: $(TARGET)
+### RELEASE ###
+CXXFLAGS_RELEASE = $(CXXFLAGS_COMMON) -O3 -DNDEBUG
+LDFLAGS_RELEASE = -shared -s -lsfml-graphics -lsfml-window -lsfml-system
 
-# # Create static library (only useful for static library)
-# $(TARGET): $(OBJECTS)
-# 	ar rcs $@ $^
+### RULES ###
+all: debug release
 
-# Create shared library
-$(TARGET): $(OBJECTS)
-	$(CC) $(LDFLAGS) -o $@ $^
+debug: $(LIB_DEBUG)
+release: $(LIB_RELEASE)
 
-# Compile source files into object files
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $< -o $@
+$(LIB_DEBUG): $(OBJ_DEBUG)
+	@mkdir -p $(@D)
+	$(CXX) $(LDFLAGS_DEBUG) -o $@ $^
 
-# Clean build files
+$(LIB_RELEASE): $(OBJ_RELEASE)
+	@mkdir -p $(@D)
+	$(CXX) $(LDFLAGS_RELEASE) -o $@ $^
+
+build/debug/%.o: src/%.cpp
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS_DEBUG) -c $< -o $@
+
+build/release/%.o: src/%.cpp
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS_RELEASE) -c $< -o $@
+
 clean:
-	rm -rf $(OBJ_DIR) $(TARGET)
-
-install: $(TARGET)
-	mkdir -p /usr/local/include/toolkit
-	cp -r include/* /usr/local/include/toolkit
-	cp $(TARGET) /usr/local/lib
-	ldconfig
-
-.PHONY: clean all install
+	rm -rf build lib
