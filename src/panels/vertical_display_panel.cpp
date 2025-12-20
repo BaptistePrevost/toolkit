@@ -17,15 +17,18 @@ void VerticalDisplayPanel::initialize() {
     }
 }
 
-void VerticalDisplayPanel::selectDrawable(const sf::Vector2f& coordinates) {
+bool VerticalDisplayPanel::selectDrawable(const sf::Vector2f& coordinates) {
+    assert(coordinates.x >= position_.x && coordinates.y >= position_.y);
+    assert(coordinates.x <= position_.x + size_.x && coordinates.y <= position_.y + size_.y);
     for (const WeightedItem& item : items_) {
         assert(item.drawable != nullptr);
         if (item.drawable->getPosition().y<=coordinates.y
                 && coordinates.y<=item.drawable->getPosition().y+item.drawable->getSize().y) {
             selectedDrawable_ = item.drawable;
-            break;
+            return true;
         }
     }
+    return false;
 }
 
 void VerticalDisplayPanel::drag(const sf::Vector2f& vector) {

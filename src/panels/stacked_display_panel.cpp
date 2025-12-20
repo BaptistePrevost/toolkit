@@ -14,8 +14,11 @@ void StackedDisplayPanel::initialize() {
     }
 }
 
-void StackedDisplayPanel::selectDrawable(const sf::Vector2f& coordinates) {
+bool StackedDisplayPanel::selectDrawable(const sf::Vector2f& coordinates) {
+    assert(coordinates.x >= position_.x && coordinates.y >= position_.y);
+    assert(coordinates.x <= position_.x + size_.x && coordinates.y <= position_.y + size_.y);
     selectedDrawable_ = this;
+    return true;
 }
 
 void StackedDisplayPanel::drag(const sf::Vector2f& vector) {

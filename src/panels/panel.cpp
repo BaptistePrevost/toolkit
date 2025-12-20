@@ -56,6 +56,8 @@ void Panel::drawFrame(sf::RenderWindow &window,
     frame_.setPosition(containerPosition);
     frame_.setSize(containerDimensions);
     window.draw(frame_);
+}
 
-
+RoundedRectangle& Panel::getFrame() {
+    return frame_;
 }

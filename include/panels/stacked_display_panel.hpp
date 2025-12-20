@@ -10,13 +10,13 @@ namespace TOOLKIT {
     class StackedDisplayPanel final : public Panel {
         public:
         StackedDisplayPanel(
-            sf::Color fillColor = Colors::DEEP_BLUE,
-            sf::Color outlineColor = Colors::BLACK
+            sf::Color fillColor = Colors::NAVY,
+            sf::Color outlineColor = Colors::OVERLAY
         );
 
         void initialize() override final;
 
-        void selectDrawable(const sf::Vector2f& coordinates);
+        bool selectDrawable(const sf::Vector2f& coordinates);
         
         void drag(const sf::Vector2f& vector) override final;
 

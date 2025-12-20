@@ -15,7 +15,7 @@ namespace TOOLKIT {
         public:
         Panel(
             sf::Color fillColor = Colors::DEEP_BLUE,
-            sf::Color outlineColor = Colors::BLACK
+            sf::Color outlineColor = Colors::WHITE
         );
         
         void draw(sf::RenderWindow &window) override final;
@@ -28,7 +28,7 @@ namespace TOOLKIT {
 
         void setFrameVisibility(bool showFrame);
 
-        virtual void selectDrawable(const sf::Vector2f& coordinates) = 0;
+        virtual bool selectDrawable(const sf::Vector2f& coordinates) = 0;
 
         void selectDrawableIfMissing(const sf::Vector2f& coordinates);
 
@@ -51,6 +51,8 @@ namespace TOOLKIT {
         void drawFrame(sf::RenderWindow &window,
                 const sf::Vector2f &containerPosition,
                 const sf::Vector2f &containerDimensions);
+
+        RoundedRectangle& getFrame();
 
     };
 
