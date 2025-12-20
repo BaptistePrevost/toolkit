@@ -24,7 +24,7 @@ void Application::run() {
         tick();
         
         /* Render */
-        window_.clear(CONF::BG_COLOR);
+        window_.clear(Colors::DEEP_BLUE);
         draw();
         window_.display();
     }

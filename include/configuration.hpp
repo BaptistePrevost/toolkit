@@ -12,6 +12,5 @@ namespace CONF {
     inline constexpr uint32_t const MAX_FRAMERATE = 120;
     inline constexpr float const DT = 1.0f / static_cast<float>(MAX_FRAMERATE);
     inline constexpr bool const USE_DT = true; //If true, use a constant step time for simualtion. Else, use real time 
-    inline const sf::Color BG_COLOR = {29, 53, 87}; //DARK BLUE
 }
 #endif

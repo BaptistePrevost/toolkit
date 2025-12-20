@@ -2,7 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "configuration.hpp"
+#include "palette.hpp"
 #include "common/drawable.hpp"
 #include "common/rounded_rectangle.hpp"
 
@@ -14,8 +14,8 @@ namespace TOOLKIT {
     class Panel : public Drawable {
         public:
         Panel(
-            sf::Color fillColor = CONF::BG_COLOR,
-            sf::Color outlineColor = sf::Color(128, 128, 128)
+            sf::Color fillColor = Colors::DEEP_BLUE,
+            sf::Color outlineColor = Colors::BLACK
         );
         
         void draw(sf::RenderWindow &window) override final;
