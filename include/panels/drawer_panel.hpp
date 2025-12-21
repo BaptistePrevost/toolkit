@@ -15,13 +15,13 @@ namespace TOOLKIT {
             sf::Vector2f size,
             sf::Vector2f openPosition,
             sf::Vector2f closedPosition,
-            sf::Color fillColor = Colors::DEEP_BLUE,
+            sf::Color fillColor = Colors::NAVY,
             sf::Color outlineColor = Colors::WHITE
         );
 
         void initialize() override final;
 
-        bool selectDrawable(const sf::Vector2f& coordinates) override final;
+        bool onMousePressed(const sf::Vector2f& coordinates) override final;
         
         void drag(const sf::Vector2f& vector) override final;
 

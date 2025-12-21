@@ -19,7 +19,7 @@ namespace TOOLKIT {
 
         void initialize() override final;
 
-        bool selectDrawable(const sf::Vector2f& coordinates) override final;
+        bool onMousePressed(const sf::Vector2f& coordinates) override final;
         
         void drag(const sf::Vector2f& vector) override final;
     };

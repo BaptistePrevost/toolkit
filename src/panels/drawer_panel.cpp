@@ -12,9 +12,8 @@ DrawerPanel::DrawerPanel(sf::Vector2f size, sf::Vector2f openPosition, sf::Vecto
 
 void DrawerPanel::initialize() {}
 
-bool DrawerPanel::selectDrawable(const sf::Vector2f& coordinates) {
-    if (coordinates.x < position_.x || coordinates.y < position_.y) return false;
-    if (coordinates.x > position_.x + size_.x || coordinates.y > position_.y + size_.y) return false;
+bool DrawerPanel::onMousePressed(const sf::Vector2f& coordinates) {
+    if (!isIn(coordinates)) return false;
     if (open_) {
         open_ = false;
         setPosition(closedPosition_);

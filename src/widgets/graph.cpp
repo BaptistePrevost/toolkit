@@ -31,6 +31,14 @@ void Graph::draw(sf::RenderWindow &window) {
 
 void Graph::initialize() {}
 
+bool Graph::onMousePressed(const sf::Vector2f& coordinates) {
+    return false;
+}
+
+bool Graph::isIn(const sf::Vector2f& coordinates) {
+    return false;
+}
+
 void Graph::drag(const sf::Vector2f&) {}
 
 void Graph::incrementSeries() {

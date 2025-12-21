@@ -19,6 +19,8 @@ namespace TOOLKIT {
         );
         
         void draw(sf::RenderWindow &window) override final;
+
+        bool isIn(const sf::Vector2f &coordinates) override final;
         
         void addItem(Drawable* drawable, float weight = 1.0);
         
@@ -27,8 +29,6 @@ namespace TOOLKIT {
         void setHorizontalPadding(float padding);
 
         void setFrameVisibility(bool showFrame);
-
-        virtual bool selectDrawable(const sf::Vector2f& coordinates) = 0;
 
         void selectDrawableIfMissing(const sf::Vector2f& coordinates);
 

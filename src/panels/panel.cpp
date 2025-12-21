@@ -46,8 +46,8 @@ void Panel::setFrameVisibility(bool showFrame) {
     showFrame_ = showFrame;
 }
 
-void Panel::selectDrawableIfMissing(const sf::Vector2f& coordinates) {
-    if (selectedDrawable_ == nullptr) selectDrawable(coordinates);
+void Panel::selectDrawableIfMissing(const sf::Vector2f &coordinates) {
+    if (selectedDrawable_ == nullptr) onMousePressed(coordinates);
 }
 
 void Panel::drawFrame(sf::RenderWindow &window,
@@ -60,4 +60,9 @@ void Panel::drawFrame(sf::RenderWindow &window,
 
 RoundedRectangle& Panel::getFrame() {
     return frame_;
+}
+
+bool Panel::isIn(const sf::Vector2f &coordinates) {
+    return coordinates.x >= position_.x && coordinates.y >= position_.y
+            && coordinates.x <= position_.x + size_.x && coordinates.y <= position_.y + size_.y;
 }

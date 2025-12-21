@@ -21,6 +21,10 @@ namespace TOOLKIT {
 
         void initialize() override final;
 
+        bool onMousePressed(const sf::Vector2f& coordinates) override final;
+
+        bool isIn(const sf::Vector2f &coordinates) override final;
+
         void drag(const sf::Vector2f&) override final;
 
         private:

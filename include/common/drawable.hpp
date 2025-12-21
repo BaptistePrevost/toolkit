@@ -20,6 +20,10 @@ namespace TOOLKIT {
          */
         virtual void initialize() = 0;
 
+        virtual bool onMousePressed(const sf::Vector2f& coordinates) = 0;
+
+        virtual bool isIn(const sf::Vector2f& coordinates) = 0;
+
         virtual void drag(const sf::Vector2f& vector) = 0;
 
         const sf::Vector2f& getPosition() const { return position_; }

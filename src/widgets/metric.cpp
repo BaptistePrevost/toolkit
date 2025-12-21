@@ -22,4 +22,12 @@ void Metric::draw(
 
 void Metric::initialize() {}
 
+bool Metric::onMousePressed(const sf::Vector2f& coordinates) {
+    return false;
+}
+
+bool Metric::isIn(const sf::Vector2f& coordinates) {
+    return false;
+}
+
 void Metric::drag(const sf::Vector2f&) {}
